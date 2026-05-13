@@ -8,37 +8,60 @@
 
 ## 1. Philosophy
 
-AWALI's visual language is **Kenyan Tech-Minimalism** expressed through an Uber-inspired black-and-white duet. The system uses restraint as a signal of trust — no gradient theatrics, no colour noise. Every surface is zinc or white. Every CTA is black. Emerald green is reserved as a semantic accent (see §2.3 — guidance to follow). The pill is the single geometric signature.
+AWALI's visual language is **Kenyan Tech-Minimalism** expressed through an Uber-inspired black-and-white duet. The system uses restraint as a signal of trust — no gradient theatrics, no colour noise. Every surface is black/white/gray. Every CTA is black. Emerald green is reserved as a semantic accent for payment/success states only. The pill is the single geometric signature.
 
-> **One rule to remember:** if it converts, it's black. If it informs, it's zinc. If it confirms success, it's emerald.
+> **One rule to remember:** if it converts, it's black. If it informs, it's gray. If it confirms success, it's emerald.
 
 ---
 
 ## 2. Colour
 
-### 2.1 Core Palette (Tailwind Zinc + Black/White)
+### 2.0 The Uber Colour System — Reference
+
+The Uber colour system is a **two-family system** — black and its darkened offsets for surfaces and text that convert or command; white and its lightened offsets for surfaces and text that inform or contain. There is no third colour family anywhere on the page.
+
+#### Family 1 — Black and Its Offsets
+
+| Token | Hex | Tailwind | Role |
+|---|---|---|---|
+| Pure Black | `#000000` | `bg-black` / `bg-zinc-950` | Nav bar, primary CTA pills, footer |
+| Near Black | `#1a1a1a` | `text-zinc-950` | Headlines, card titles, form labels |
+| Dark Charcoal | `#3d3d3d` | `text-zinc-600` | Body copy, nav links, secondary text |
+
+#### Family 2 — White and Its Offsets
+
+| Token | Hex | Tailwind | Role |
+|---|---|---|---|
+| Pure White | `#ffffff` | `bg-white` | Page canvas, form card, secondary CTA pills |
+| Off White | `#f3f3f3` | `bg-zinc-100` | Input field backgrounds |
+| Soft Gray | `#efefef` | `bg-zinc-100` | Feature card backgrounds, section bands |
+| Pressed Gray | `#e2e2e2` | `border-zinc-200` | Borders, dividers, pressed states |
+
+---
+
+### 2.1 Core Palette (AWALI Mapping)
 
 | Role                 | Token              | Tailwind Class      | Hex       |
 | -------------------- | ------------------ | ------------------- | --------- |
-| **Page background**  | `bg-base`          | `bg-zinc-50`        | `#fafafa` |
-| **Card surface**     | `bg-card`          | `bg-white`          | `#ffffff` |
+| **Page background**  | `bg-base`          | `bg-white`          | `#ffffff` |
+| **Card surface**     | `bg-card`          | `bg-zinc-100`       | `#efefef` |
 | **Elevated card**    | `bg-card-elevated` | `bg-white` + shadow | `#ffffff` |
-| **Subtle fill**      | `bg-muted`         | `bg-zinc-100`       | `#f4f4f5` |
-| **Input fill**       | `bg-input`         | `bg-zinc-100`       | `#f4f4f5` |
-| **Divider / border** | `border-default`   | `border-zinc-200`   | `#e4e4e7` |
-| **Dark band**        | `bg-dark`          | `bg-zinc-950`       | `#09090b` |
+| **Input fill**       | `bg-input`         | `bg-zinc-100`       | `#f3f3f3` |
+| **Divider / border** | `border-default`   | `border-zinc-200`   | `#e2e2e2` |
+| **Dark band / nav**  | `bg-dark`          | `bg-black`          | `#000000` |
 | **Footer**           | `bg-footer`        | `bg-black`          | `#000000` |
 
-### 2.2 Text Hierarchy (Zinc depths)
+### 2.2 Text Hierarchy
 
 | Role                   | Tailwind Class  | Hex       | Use                    |
 | ---------------------- | --------------- | --------- | ---------------------- |
-| **Primary text**       | `text-zinc-950` | `#09090b` | Headlines, labels      |
-| **Secondary text**     | `text-zinc-600` | `#52525b` | Subheadings, body      |
+| **Primary text**       | `text-zinc-950` | `#1a1a1a` | Headlines, labels      |
+| **Secondary text**     | `text-zinc-600` | `#3d3d3d` | Body copy, nav links   |
 | **Tertiary / caption** | `text-zinc-400` | `#a1a1aa` | Timestamps, metadata   |
 | **Placeholder**        | `text-zinc-300` | `#d4d4d8` | Input placeholders     |
 | **On-dark text**       | `text-white`    | `#ffffff` | Text on dark bands     |
-| **Muted on dark**      | `text-zinc-400` | `#a1a1aa` | Footer secondary links |
+
+**On black surfaces:** there is no secondary text colour — everything is white. Hierarchy on dark surfaces is conveyed by font weight and size, not colour.
 
 ### 2.3 Emerald — Reserved Accent
 
@@ -47,9 +70,8 @@ Emerald green is the **only chromatic colour** in the system. Use it exclusively
 - Payment confirmed / success state badges
 - "Paid" status chips
 - Check-in confirmed indicators
-- Active navigation indicator (sidebar left-border)
 
-> **Do not use emerald anywhere else until explicitly guided.** It must feel earned — a confirmation signal, never decoration.
+> **Do not use emerald anywhere else.** It must feel earned — a confirmation signal, never decoration.
 
 | Token                  | Tailwind           | Hex       |
 | ---------------------- | ------------------ | --------- |
@@ -57,15 +79,45 @@ Emerald green is the **only chromatic colour** in the system. Use it exclusively
 | `accent-success-light` | `bg-emerald-50`    | `#ecfdf5` |
 | `accent-success-text`  | `text-emerald-700` | `#047857` |
 
-### 2.4 Dark Mode
+### 2.4 Pill Colour Hierarchy
 
-Dark mode inverts the zinc/white duet. The page becomes `bg-zinc-950`, cards become `bg-zinc-900`, text becomes `bg-zinc-50`. Emerald semantics remain identical. The theme toggle lives in the dashboard sidebar header.
+The pill is the brand's interactive signature. Its colour encodes conversion priority:
+
+| Pill type | Background | Text | Border | Used for |
+|---|---|---|---|---|
+| **Primary** | `bg-black` | `text-white` | none | "See prices", "Sign up" — the only CTA on a surface |
+| **Secondary** | `bg-white` | `text-zinc-950` | none | "Log in", "Schedule ahead" — paired alongside a primary on dark surfaces |
+| **Tertiary / chip** | `bg-zinc-100` | `text-zinc-600` | `border-zinc-200` | "Details", "Pickup now" — action within a card, low urgency |
+| **Pressed** | `bg-zinc-200` | `text-zinc-600` | none | Active/pressed state of tertiary pills |
+
+### 2.5 The Nesting Rule — Depth Without Shadows
+
+Depth is created by stepping surfaces darker as you go deeper into a component:
+
+```
+Page canvas #ffffff ← outermost, lightest
+  Feature card #efefef ← one step darker — visible by contrast alone
+    "Details" pill #ffffff ← bounces back to white — needs a border now
+
+Page canvas #ffffff ← outermost
+  Form card #ffffff ← same value — separated by shadow instead
+    Input rows #f3f3f3 ← one step darker — signals "editable"
+
+Nav bar #000000 ← polarity flip — darkest surface
+  Nav text #ffffff ← inverted — light on dark
+  "Log in" pill #ffffff ← white pill on black bar = secondary CTA
+```
+
+**The single principle:** when a child element has the same surface colour as its parent, it needs either a border or a shadow to be visible. When it has a different surface colour, contrast does the work alone.
+
+### 2.6 Dark Mode
+
+Dark mode inverts the system. The page becomes `bg-zinc-950`, cards become `bg-zinc-900`, text becomes `text-zinc-50`. Emerald semantics remain identical.
 
 | Light                 | Dark              |
 | --------------------- | ----------------- |
-| `bg-zinc-50`          | `bg-zinc-950`     |
-| `bg-white` (card)     | `bg-zinc-900`     |
-| `bg-zinc-100` (muted) | `bg-zinc-800`     |
+| `bg-white`            | `bg-zinc-950`     |
+| `bg-zinc-100` (card)  | `bg-zinc-900`     |
 | `border-zinc-200`     | `border-zinc-800` |
 | `text-zinc-950`       | `text-zinc-50`    |
 | `text-zinc-600`       | `text-zinc-400`   |
@@ -194,33 +246,33 @@ The **pill** is the brand signature. Every interactive element is a pill (`round
 
 ### 6.2 Cards
 
-**Default card** — White surface, xl radius, subtle border.
+**Default card** — Soft gray surface, xl radius, no border needed (contrast with white canvas does the work).
 
 ```html
-<Card class="bg-white rounded-xl border border-zinc-200 p-6" />
+<Card class="bg-zinc-100 rounded-xl p-6" />
 ```
 
-**Elevated card** — White + shadow (for floating elements, modals).
+**Elevated card** — White + shadow (for floating elements, modals, form cards).
 
 ```html
-<Card class="bg-white rounded-xl border border-zinc-200 shadow-sm p-6" />
+<Card class="bg-white rounded-xl shadow-sm p-6" />
 ```
 
-**Dark card** — Zinc-950 surface (for promo bands, highlighted stats).
+**Dark card** — Black surface (for promo bands, highlighted stats).
 
 ```html
-<Card class="bg-zinc-950 text-white rounded-xl p-6" />
+<Card class="bg-black text-white rounded-xl p-6" />
 ```
 
 **Stat card** — Used in dashboard overview row.
 
 ```html
-<Card class="bg-white rounded-xl border border-zinc-200 p-6">
+<Card class="bg-zinc-100 rounded-xl p-6">
   <p class="text-xs font-semibold tracking-widest text-zinc-400 uppercase">
     Total RSVPs
   </p>
   <p class="text-3xl font-bold text-zinc-950 mt-1">247</p>
-  <p class="text-sm text-zinc-500 mt-1">+12 today</p>
+  <p class="text-sm text-zinc-600 mt-1">+12 today</p>
 </Card>
 ```
 
@@ -425,18 +477,14 @@ Sidebar collapses to bottom tab bar (5 items max) or hamburger drawer. Content: 
 ### Landing Page Band Rhythm
 
 ```
-White hero band (headline + form card)
-  ↓
-White features band (3-col card grid)
-  ↓
-Zinc-950 promo band (dark — "How it works")
-  ↓
-White template library band
-  ↓
-Zinc-950 pricing band (dark cards on dark bg)
-  ↓
-Black footer
+Black band — nav bar
+White band — hero (form card + editorial image)
+White band — "Explore what you can do" section
+Soft gray band — section break (bg-zinc-100)
+Black band — footer
 ```
+
+The soft gray band is the only mid-page colour break. Everything else is black or white.
 
 ---
 
@@ -445,20 +493,81 @@ Black footer
 ### Do
 
 - Use `rounded-full` on every button, chip, and pill
-- Use `bg-zinc-950` for all primary CTAs
-- Keep cards `bg-white` on a `bg-zinc-50` page — the contrast is the depth cue
-- Use dark bands mid-page (`bg-zinc-950`) to break white-on-white rhythm
+- Use `bg-black` for all primary CTAs
+- Use `bg-white` as the page canvas — cards are `bg-zinc-100` and contrast alone creates depth
+- Use `bg-black` bands for nav and footer
+- Use `bg-zinc-100` for section breaks and card surfaces
 - Reserve emerald exclusively for payment/success confirmation
+- Use borders (`border-zinc-200`) only when a child has the same colour as its parent
 
 ### Don't
 
-- Don't introduce any colour other than zinc, black, white, and emerald
+- Don't introduce any colour other than black, white, zinc offsets, and emerald
 - Don't use `rounded-lg` on buttons — only cards get `rounded-xl`, buttons get `rounded-full`
 - Don't letter-space display headlines
-- Don't use shadow on every card — flat is the default; shadow is for elevation
+- Don't use shadows on flat cards — shadow is only for elevated/floating elements (form cards, modals)
 - Don't use Inter or any generic system font — DM Sans only
 - Don't put emerald on anything that isn't a success/confirmation signal
+- Don't use gradients or decorative colour anywhere
 
 ---
 
-_AWALI Design System · v1.0 · Built for Kenya. WhatsApp-native. AWS-powered._
+_AWALI Design System · v2.0 · Built for Kenya. WhatsApp-native. AWS-powered._
+
+---
+
+## Appendix A — Uber Colour System Extraction
+
+> uber.com/ke/en · May 2026 · Black, White and their offsets
+
+### Card-by-Card Colour Anatomy
+
+#### Card 1 — Ride Request Form Card (hero, left column)
+
+The only **elevated** surface on the page. White on white, separated by a drop shadow.
+
+| Layer | Colour | Hex | Role |
+|---|---|---|---|
+| Outer card background | White | `#ffffff` | The card itself |
+| Card separation | Drop shadow | `rgba(0,0,0,0.13)` | What makes it "float" |
+| Input row fill | Off-white | `#f3f3f3` | Input fields |
+| Input text | Charcoal | `#3d3d3d` | Placeholder label text |
+| Input border/divider | Pressed gray | `#e2e2e2` | Divider between input rows |
+| Primary CTA pill | Black | `#000000` | "See prices" |
+| CTA pill text | White | `#ffffff` | "See prices" label |
+
+#### Cards 3, 4, 5 — Feature Cards: Ride / Reserve / Electric Boda
+
+| Layer | Colour | Hex | Role |
+|---|---|---|---|
+| Card background | Soft gray | `#efefef` | The card surface |
+| Card sits on | White canvas | `#ffffff` | Contrast alone — no border needed |
+| Card title | Near-black | `#1a1a1a` | "Ride" / "Reserve" / "Electric Boda" |
+| Card body | Charcoal | `#3d3d3d` | One-line description |
+| "Details" pill background | White | `#ffffff` | Steps back to white inside gray card |
+| "Details" pill border | Pressed gray | `#e2e2e2` | Required — white pill on gray needs border |
+| "Details" pill text | Near-black | `#1a1a1a` | |
+
+### Surface Stacking (Page Layers)
+
+```
+Layer 0 — Page background #ffffff Pure white canvas
+Layer 1 — Feature cards #efefef Soft gray, sits on canvas
+Layer 2 — Input rows #f3f3f3 Off-white, inside a white card
+Layer 3 — Pill borders #e2e2e2 Pressed gray, defines edges
+Layer 4 — Nav bar #000000 Pure black, commands the top
+Layer 5 — Primary CTA pill #000000 Pure black, commands conversion
+```
+
+### Text Pairing Rules
+
+| Surface background | Primary text | Secondary text |
+|---|---|---|
+| `#ffffff` white | `#1a1a1a` near-black | `#3d3d3d` charcoal |
+| `#efefef` soft gray | `#1a1a1a` near-black | `#3d3d3d` charcoal |
+| `#f3f3f3` off-white | `#1a1a1a` near-black | `#3d3d3d` charcoal |
+| `#000000` black | `#ffffff` white | `#ffffff` white (hierarchy via weight/size) |
+
+---
+
+*Extracted from uber.com/ke/en screenshot · May 2026*

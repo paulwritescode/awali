@@ -1,0 +1,59 @@
+# AWALI
+
+> WhatsApp-native event management platform for Kenya. Collect RSVPs, M-Pesa payments, and manage check-ins via WhatsApp.
+
+## What is AWALI?
+
+AWALI is a platform that lets event organisers in Kenya collect RSVPs, payments (via M-Pesa), and manage guest check-ins entirely through WhatsApp. Guests never download an app — they interact with a WhatsApp bot that guides them through RSVP, payment, and ticket delivery.
+
+## Who is it for?
+
+- Wedding planners collecting RSVPs and contributions
+- Families organising funeral/burial contribution collections
+- Harambee committees collecting community fundraising
+- Chama and SACCO treasurers collecting monthly contributions
+- Corporate event managers handling registration and check-in
+- Church administrators managing crusade/conference registration
+- Anyone hosting a birthday party, baby shower, or social event in Kenya
+
+## Key Features
+
+- **WhatsApp RSVPs**: Guests RSVP by chatting with a bot. No app downloads.
+- **M-Pesa Payments**: Collect contributions via STK Push. Auto-reconciled.
+- **QR Code Check-in**: Generate QR tickets, scan at the door with any phone.
+- **Smart Reminders**: Automated WhatsApp reminders for non-responders.
+- **Real-time Dashboard**: Track RSVPs, payments, and attendance live.
+- **Template Library**: Pre-built flows for weddings, funerals, chamas, corporate events, and more.
+
+## How it works
+
+1. Organiser creates a "flow" from a template (wedding, funeral, chama, etc.)
+2. Configures questions, payment amount, and reminder schedule
+3. Shares a QR code or WhatsApp link with guests
+4. Guests interact with the WhatsApp bot to RSVP and pay
+5. Organiser tracks everything from a real-time dashboard
+
+## Use Cases
+
+- /use-cases/wedding-rsvp — Wedding RSVP and contribution collection
+- /use-cases/funeral-contributions — Funeral/burial contribution collection
+- /use-cases/harambee — Community fundraising (harambee)
+- /use-cases/chama-contributions — Monthly chama/SACCO contributions
+- /use-cases/birthday-party — Birthday party invitation management
+- /use-cases/corporate-events — Corporate event registration and check-in
+- /use-cases/church-events — Church event RSVPs and offerings
+- /use-cases/event-check-in — QR code event check-in system
+
+## Pricing
+
+- Free: 1 flow, 20 responses, RSVP only
+- Per Event: KES 500, unlimited responses, M-Pesa payments, reminders
+- Pro: KES 2,500/month, unlimited flows, 1,000 contacts, API access
+
+## Location
+
+Based in Nairobi, Kenya. Built specifically for the Kenyan market with M-Pesa and WhatsApp integration.
+
+## Website
+
+https://awali.co.ke
